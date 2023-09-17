@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getUsers, insertUser } from "../database/users";
+import { getUsers } from "../database/users";
 
 const router = Router();
 
