@@ -23,7 +23,7 @@ CREATE TABLE events (
 
 CREATE TABLE event_users (
 	user_id SERIAL NOT NULL,
-	user_id SERIAL NOT NULL,
+	event_id SERIAL NOT NULL,
 	PRIMARY KEY (user_id, event_id),
 	FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
 	FOREIGN KEY (event_id) REFERENCES events(id) ON DELETE CASCADE
@@ -31,9 +31,11 @@ CREATE TABLE event_users (
 
 CREATE TABLE event_dates (
 	user_id SERIAL NOT NULL,
-	user_id SERIAL NOT NULL,
+	event_id SERIAL NOT NULL,
 	date DATE NOT NULL,
-	PRIMARY KEY (user_id, event_id)
+	PRIMARY KEY (user_id, event_id),
+	FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+	FOREIGN KEY (event_id) REFERENCES events(id) ON DELETE CASCADE
 );
 
 
@@ -44,10 +46,10 @@ CREATE TABLE auth_providers (
 
 
 CREATE TABLE auth_ids (
-	auth_id SERIAL NOT NULL,
+	auth_provider_id SERIAL NOT NULL,
 	user_id SERIAL NOT NULL,
 	uid VARCHAR(255) NOT NULL,
-	PRIMARY KEY (auth_id, user_id),
-	FOREIGN KEY (auth_id) REFERENCES auth(id) ON DELETE CASCADE,
+	PRIMARY KEY (auth_provider_id, user_id),
+	FOREIGN KEY (auth_provider_id) REFERENCES auth_providers(id) ON DELETE CASCADE,
 	FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
