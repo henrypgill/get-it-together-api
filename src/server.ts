@@ -14,15 +14,13 @@ export const database = new DatabaseClient(
   setupDBClientConfig(),
   "sql_queries"
 );
-const app = express()
+const app = express();
 
-app.use(express.json())
-app.use(cors())
-app.use(morgan("tiny"))
-app.use("/", homeRouter)
-app.use("/users", userRouter)
-
-
+app.use(express.json());
+app.use(cors());
+app.use(morgan("tiny"));
+app.use("/", homeRouter);
+app.use("/users", userRouter);
 
 connectToDBAndStartListening();
 

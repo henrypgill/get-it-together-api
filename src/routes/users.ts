@@ -13,7 +13,5 @@ router.get("/", async (_req, res) => {
   }
 });
 
-
-
 const userRouter = router;
 export default userRouter;
