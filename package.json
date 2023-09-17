@@ -1,0 +1,45 @@
+{
+  "name": "get-it-together-api",
+  "version": "1.0.0",
+  "description": "back end api for the Get It Together web app",
+  "main": "index.js",
+  "repository": "git@github.com:henrypgill/get-it-together-api.git",
+  "author": "henrypgill <henrygill3@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn clean; tsc",
+    "clean": "rimraf ./dist",
+    "format:check": "prettier --check .",
+    "format": "prettier --write .",
+    "lint": "eslint src",
+    "start:dev": "USE_DEV_DB=true ts-node-dev --files src/server.ts",
+    "start": "node dist/server.js",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "tsc --noEmit --watch",
+    "test": "jest --passWithNoTests --no-watch verbose",
+    "test:watch": "jest verbose"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "morgan": "^1.10.0",
+    "pg": "^8.8.0",
+    "query-from-file": "^1.1.8"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/node": "^14.14.31",
+    "@types/pg": "^8.6.5",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "@types/morgan": "^1.9.5",
+    "eslint": "^7.28.0",
+    "jest": "^29.7.0",
+    "prettier": "2.3.1",
+    "rimraf": "^3.0.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.3"
+  }
+}
